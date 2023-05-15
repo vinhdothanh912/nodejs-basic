@@ -13,8 +13,21 @@ const getSamplePage = (req, res) => {
 };
 
 const postCreateUser = (req, res) => {
-  console.log("@@req: ", req.body);
-  res.send("Create user page");
+  const { email, name, city } = req.body;
+
+  connection.query(
+    `INSERT INTO 
+    Users (email, name , city) 
+    VALUES(?, ?, ?)`,
+    [email, name, city],
+    function (err, results) {
+      console.log(results);
+      res.send("Create user sussceed");
+      // res.send(JSON.stringify([email, name, city]));
+    }
+  );
+
+  // res.send("Create user page");
 };
 
 module.exports = { getHomePage, getNewPage, getSamplePage, postCreateUser };
