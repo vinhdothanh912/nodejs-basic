@@ -30,3 +30,24 @@
   background-color: #04aa6d;
   color: white;
 }
+
+.form-add-new-container {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.form-add-new {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+}
+
+.submit-button {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: fit-content;
+}

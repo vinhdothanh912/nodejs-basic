@@ -12,4 +12,9 @@ const getSamplePage = (req, res) => {
   res.render("sample.ejs");
 };
 
-module.exports = { getHomePage, getNewPage, getSamplePage };
+const postCreateUser = (req, res) => {
+  console.log("@@req: ", req.body);
+  res.send("Create user page");
+};
+
+module.exports = { getHomePage, getNewPage, getSamplePage, postCreateUser };
