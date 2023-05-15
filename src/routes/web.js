@@ -3,6 +3,7 @@ const {
   getHomePage,
   getNewPage,
   getSamplePage,
+  getCreateUserPage,
   postCreateUser,
 } = require("../controllers/homeController");
 
@@ -12,6 +13,7 @@ router.get("/", getHomePage);
 router.get("/new", getNewPage);
 router.get("/sample", getSamplePage);
 
-router.post("/create-user", postCreateUser);
+router.get("/create-user", getCreateUserPage);
+router.post("/create-user-success", postCreateUser);
 
 module.exports = router;
