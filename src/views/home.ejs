@@ -29,8 +29,9 @@
           <td><%= user.email %></td>
           <td><%= user.city %></td>
           <td>
-            <a href="/update-user/<%= user.id %>">Edit</a
-            ><button>Delete</button>
+            <a href="/update-user/<%= user.id %>">Edit</a>
+            <br />
+            <a href="/delete-user/<%= user.id %>">Delete</a>
           </td>
         </tr>
         <% }); %>
