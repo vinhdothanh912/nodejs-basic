@@ -9,7 +9,7 @@
   <body>
     <div class="topnav">
       <a href="/">Home</a>
-      <a href="/create-user">Update User</a>
+      <a href="/create-user">Create User</a>
     </div>
     <div class="form-add-new-container">
       <form action="/create-user-success" method="post">
@@ -17,18 +17,18 @@
           <legend>Update user</legend>
           <div class="input-group">
             <label>Email: </label>
-            <input type="text" name="email" />
+            <input type="text" name="email" value="<%= user.email %>" />
           </div>
           <div class="input-group">
             <label>Name: </label>
-            <input type="text" name="name" />
+            <input type="text" name="name" value="<%= user.name %>" />
           </div>
           <div class="input-group">
             <label>City: </label>
-            <input type="text" name="city" />
+            <input type="text" name="city" value="<%= user.city %>" />
           </div>
 
-          <button class="submit-button" type="submit">Add new</button>
+          <button class="submit-button" type="submit">Update</button>
         </fieldset>
       </form>
     </div>
