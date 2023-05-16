@@ -2,6 +2,7 @@ const {
   getAllUsers,
   createNewUser,
   getUserById,
+  updateUser,
 } = require("../services/CRUDservices");
 
 const getHomePage = async (req, res) => {
@@ -27,15 +28,21 @@ const postCreateUser = async (req, res) => {
 
   await createNewUser(payload);
 
-  return res.send("Create user sucess");
+  return res.redirect("/");
 };
 
 const getUpdateUserPage = async (req, res) => {
   const user = await getUserById(req.params.userId);
 
-  // const updateUser = ()
-
   return res.render("update-user.ejs", { user });
+};
+
+const postUpdateUser = async (req, res) => {
+  const payload = req.body;
+
+  await updateUser(payload);
+
+  return res.redirect("/");
 };
 
 module.exports = {
@@ -45,4 +52,5 @@ module.exports = {
   getCreateUserPage,
   postCreateUser,
   getUpdateUserPage,
+  postUpdateUser,
 };

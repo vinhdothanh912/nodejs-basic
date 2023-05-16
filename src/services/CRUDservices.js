@@ -25,4 +25,16 @@ const getUserById = async (userId) => {
   return user;
 };
 
-module.exports = { getAllUsers, createNewUser, getUserById };
+const updateUser = async (payload) => {
+  const { userId: id, email, name, city } = payload;
+
+  const [results, fields] = await connection.query(
+    `
+    UPDATE Users 
+    SET email = ?, name = ?, city = ?
+    WHERE id = ?`,
+    [email, name, city, id]
+  );
+};
+
+module.exports = { getAllUsers, createNewUser, getUserById, updateUser };
