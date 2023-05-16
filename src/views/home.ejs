@@ -16,17 +16,21 @@
       <h2>List user</h2>
       <table>
         <tr>
-          <th>Id</th>
-          <th>Email</th>
+          <th>ID</th>
           <th>Name</th>
+          <th>Email</th>
           <th>City</th>
+          <th>Actions</th>
         </tr>
+        <% listUsers.forEach(function(user){ %>
         <tr>
-          <td>Peter</td>
-          <td>Griffin</td>
-          <td>$100</td>
-          <td>$100</td>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.city %></td>
+          <td><button>Edit</button><button>Delete</button></td>
         </tr>
+        <% }); %>
       </table>
     </div>
   </body>
