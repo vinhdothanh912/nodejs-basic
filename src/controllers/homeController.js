@@ -27,10 +27,18 @@ const postCreateUser = async (req, res) => {
   return res.send("Create user sucess");
 };
 
+const getUpdateUserPage = async (req, res) => {
+  const params = req.params;
+  console.log(params);
+
+  return res.render("update-user.ejs");
+};
+
 module.exports = {
   getHomePage,
   getNewPage,
   getSamplePage,
   getCreateUserPage,
   postCreateUser,
+  getUpdateUserPage,
 };
