@@ -1,21 +1,27 @@
 const connection = require("../config/database");
 
-const getAllUsers = async () => {
+const getAllUsersService = async () => {
   const [results, fields] = await connection.query("SELECT * from Users");
 
   return results;
 };
 
-const createNewUser = async (payload) => {
-  const { email, name, city } = payload;
+const createNewUserService = async (payload) => {
+  try {
+    const { email, name, city } = payload;
 
-  await connection.query(
-    `
+    const [resulst] = await connection.query(
+      `
     INSERT INTO Users (email, name , city) 
     VALUES(?, ?, ?)
     `,
-    [email, name, city]
-  );
+      [email, name, city]
+    );
+
+    return resulst;
+  } catch (error) {
+    return error;
+  }
 };
 
 const getUserById = async (userId) => {
@@ -31,20 +37,24 @@ const getUserById = async (userId) => {
   return user;
 };
 
-const updateUser = async (payload) => {
-  const { userId: id, email, name, city } = payload;
+const updateUserService = async (payload) => {
+  try {
+    const { userId: id, email, name, city } = payload;
 
-  await connection.query(
-    `
-    UPDATE Users 
-    SET email = ?, name = ?, city = ?
-    WHERE id = ?
-    `,
-    [email, name, city, id]
-  );
+    await connection.query(
+      `
+      UPDATE Users 
+      SET email = ?, name = ?, city = ?
+      WHERE id = ?
+      `,
+      [email, name, city, id]
+    );
+  } catch (error) {
+    return error;
+  }
 };
 
-const deleteUserById = async (userId) => {
+const deleteUserServiceById = async (userId) => {
   await connection.query(
     `
     DELETE from Users 
@@ -55,9 +65,9 @@ const deleteUserById = async (userId) => {
 };
 
 module.exports = {
-  getAllUsers,
-  createNewUser,
+  getAllUsersService,
+  createNewUserService,
   getUserById,
-  updateUser,
-  deleteUserById,
+  updateUserService,
+  deleteUserServiceById,
 };

@@ -5,10 +5,10 @@ const {
   getSamplePage,
   getCreateUserPage,
   postCreateUser,
-  getUpdateUserPage,
-  postUpdateUser,
-  getDeleteUserPage,
-  postDeleteUser,
+  getupdateUserServicePage,
+  postupdateUserService,
+  getdeleteUserServicePage,
+  postdeleteUserService,
 } = require("../controllers/homeController");
 
 const router = express.Router();
@@ -21,10 +21,10 @@ router.get("/sample", getSamplePage);
 router.get("/create-user", getCreateUserPage);
 router.post("/create-user", postCreateUser);
 
-router.get("/update-user/:userId", getUpdateUserPage);
-router.post("/update-user", postUpdateUser);
+router.get("/update-user/:userId", getupdateUserServicePage);
+router.post("/update-user", postupdateUserService);
 
-router.get("/delete-user/:userId", getDeleteUserPage);
-router.post("/delete-user", postDeleteUser);
+router.get("/delete-user/:userId", getdeleteUserServicePage);
+router.post("/delete-user", postdeleteUserService);
 
 module.exports = router;
